@@ -7,9 +7,9 @@
  *      INCLUDES
  *********************/
 
-#include "../lv_test_assert.h"
+#include "../../lvgl.h"
 #if LV_BUILD_TEST
-#include "../lvgl.h"
+#include "../lv_test_assert.h"
 #include "../src/lv_font/lv_font_fmt_txt.h"
 #include "../src/lv_font/lv_font.h"
 #include "../src/lv_font/lv_font_loader.h"
@@ -62,6 +62,8 @@ void lv_test_font_loader(void)
     lv_font_free(font_1_bin);
     lv_font_free(font_2_bin);
     lv_font_free(font_3_bin);
+#else
+    lv_test_print("SKIP: font load test because it requires LV_USE_FILESYSTEM 1 and LV_FONT_FMT_TXT_LARGE 0");
 #endif
 }
 
